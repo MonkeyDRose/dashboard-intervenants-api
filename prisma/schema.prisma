@@ -1,20 +1,25 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model Intervenant {
-  id    Int    @id @default(autoincrement())
-  nom   String
-  promo Int
+  id                         Int     @id @default(autoincrement())
+  nom                        String  @map("Intervenants")
+  genre                      String?
+  filiere                    String? @map("Filière")
+  promo                      String? @map("Promo")
+  dansLePool                 Boolean? @map("Dans le Pool ?")
+  email                      String? @map("Email")
+  telephone                  String? @map("Téléphone")
+  nbEtudesEnCours            Int?    @map("Nombre d'études en cours")
+  nbEtudesTerminees          Int?    @map("Nombre d'études terminées")
+  nbEtudesTotal              Int?    @map("Nombre d'études total")
+  retributionTotale          Float?  @map("Rétribution totale")
+  centreInterets             String? @map("Centre d'intérêts")
+  competences                String? @map("Compétences")
 }
