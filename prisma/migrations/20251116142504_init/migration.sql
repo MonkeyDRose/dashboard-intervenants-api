@@ -4,5 +4,5 @@ CREATE TABLE "intervenants" (
     "nom" TEXT NOT NULL,
     "promo" INTEGER NOT NULL,
 
-    CONSTRAINT "Intervenant_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "intervenants_pkey" PRIMARY KEY ("id")
 );
