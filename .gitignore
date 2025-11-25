@@ -1,5 +1,19 @@
 node_modules
-# Keep environment variables out of version control
-.env
 
 /generated/prisma
+
+# Fichiers générés par Node.js/npm
+/node_modules
+/dist
+/build
+
+# Fichiers sensibles
+.env
+.env.local
+
+# Fichiers générés par Next.js/Vercel
+/.next/
+/out/
+
+# Fichiers générés par Prisma
+/prisma/client
