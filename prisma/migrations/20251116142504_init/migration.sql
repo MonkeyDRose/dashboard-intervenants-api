@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Intervenant" (
+CREATE TABLE "intervenants" (
     "id" SERIAL NOT NULL,
     "nom" TEXT NOT NULL,
     "promo" INTEGER NOT NULL,
