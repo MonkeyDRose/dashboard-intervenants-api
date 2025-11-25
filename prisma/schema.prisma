@@ -1,25 +1,30 @@
+// Fichier : prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  // L'URL de connexion complète de Neon doit être mise dans un fichier .env sous le nom DATABASE_URL
+  url      = env("DATABASE_URL") 
+}
+
 generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
 model Intervenant {
-  id                         Int     @id @default(autoincrement())
-  nom                        String  @map("Intervenants")
-  genre                      String?
-  filiere                    String? @map("Filière")
-  promo                      String? @map("Promo")
-  dansLePool                 Boolean? @map("Dans le Pool ?")
-  email                      String? @map("Email")
-  telephone                  String? @map("Téléphone")
-  nbEtudesEnCours            Int?    @map("Nombre d'études en cours")
-  nbEtudesTerminees          Int?    @map("Nombre d'études terminées")
-  nbEtudesTotal              Int?    @map("Nombre d'études total")
-  retributionTotale          Float?  @map("Rétribution totale")
-  centreInterets             String? @map("Centre d'intérêts")
-  competences                String? @map("Compétences")
+  id                      Int      @id @default(autoincrement())
+  Nom_Complet             String   @db.Text
+  Genre                   String?  @db.VarChar(10)
+  Filiere                 String?  @db.VarChar(10)
+  Promo                   Int?
+  Est_Pole                Boolean?
+  Email                   String?  @db.Text
+  Telephone               String?  @db.Text
+  Nb_Activites            Int?
+  Nb_Activites_Passees    Int?
+  Nb_Activites_Futures    Int?
+  Retribution_Totale      Float?   @db.Numeric
+  Centres_Interets        String?  @db.Text
+  Competences             String?  @db.Text
+
+  @@map("intervenants")
 }
