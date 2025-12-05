@@ -22,7 +22,7 @@ model Intervenant {
   Nb_Activites            Int?
   Nb_Activites_Passees    Int?
   Nb_Activites_Futures    Int?
-  Retribution_Totale      Float?   @db.Numeric
+  Retribution_Totale      Float?  
   Centres_Interets        String?  @db.Text
   Competences             String?  @db.Text
 
